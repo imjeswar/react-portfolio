@@ -2,13 +2,13 @@ import React from "react";
 
 const Hero = ({ scrollToSkills }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-screen text-center bg-gradient-to-r from-black via-gray-900 to-black animate-gradient px-6">
+    <div className="flex flex-col md:flex-row items-center justify-center h-screen text-center px-6">
       {/* Left: Text */}
       <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-        <h1 className="text-5xl font-bold">
-          Hi, I'm <span className="text-amber-300">Jeswar</span>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
+          Hi, I'm <span className="text-amber-300 font-name">Jeswar</span>
         </h1>
-        <h2 className="text-2xl mt-4 text-amber-200">
+        <h2 className="text-2xl mt-4 text-amber-200 font-semibold uppercase tracking-widest">
           Web Developer &amp; AI Enthusiast
         </h2>
         <p className="max-w-xl mt-4 text-amber-100">

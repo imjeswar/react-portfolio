@@ -3,12 +3,15 @@ import React from "react";
 const About = () => (
   <section
     id="about"
-    className="max-w-4xl mx-auto my-16 p-8 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-xl border border-amber-400/30 hover:shadow-amber-400/70 transition duration-500 transform hover:-translate-y-2"
+    className="w-full p-8 md:p-12 premium-glass animate-glow rounded-3xl"
     data-aos="fade-up"
   >
-    <h2 className="text-3xl font-bold border-b-2 border-amber-300 pb-2 mb-6 text-amber-200 tracking-wide">
-      About Me
-    </h2>
+    <div className="relative group inline-block mb-8">
+      <h2 className="text-4xl font-bold text-amber-200 tracking-wide heading-shine pb-2">
+        About Me
+      </h2>
+      <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-gradient-to-r from-amber-400 to-amber-200 transition-all duration-500 group-hover:w-full group-hover:shadow-[0_0_12px_#fbbf24] shadow-[0_0_6px_#fbbf24]" />
+    </div>
 
     <p className="text-gray-300 leading-relaxed hover:text-white transition duration-300">
       I’m Jeswar A M, a passionate web developer and AI enthusiast who loves

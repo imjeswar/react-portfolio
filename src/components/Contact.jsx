@@ -54,12 +54,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-[#0b1221] text-center">
-      <h2 className="text-3xl font-bold mb-8 text-amber-100">
+    <section id="contact" className="py-16 w-full flex flex-col items-center">
+      <h2 className="text-3xl font-bold mb-12 text-amber-100 border-b-2 border-amber-300/70 pb-2 inline-block">
         Let&apos;s Start a Conversation
       </h2>
 
-      <div className="max-w-2xl mx-auto bg-gray-900 p-8 rounded-lg shadow-lg border-2 border-amber-400/50 transition">
+      <div className="w-full md:w-3/4 lg:w-2/3 premium-glass animate-glow p-8 md:p-12 rounded-3xl shadow-xl">
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -104,7 +104,7 @@ const Contact = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-amber-200 text-black font-bold rounded hover:bg-amber-300 disabled:opacity-60"
+            className="w-full py-4 premium-glass animate-glow text-amber-200 font-bold rounded-xl hover:text-white transition-all duration-300 disabled:opacity-60"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>

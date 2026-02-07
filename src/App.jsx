@@ -7,12 +7,18 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Education from "./components/Education";
 import Journey from "./components/Journey";
+import Internship from "./components/Internship";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import ProjectDetailsPortfolio from "./components/ProjectDetailsPortfolio";
 import ProjectDetailsChatbot from "./components/ProjectDetailsChatbot";
+import ProjectDetailsHealth from "./components/ProjectDetailsHealth";
+import ProjectDetailsResume from "./components/ProjectDetailsResume";
+import ProjectDetailsInkify from "./components/ProjectDetailsInkify";
+import ProjectDetailsEcommerce from "./components/ProjectDetailsEcommerce";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Background from "./components/Background";
 
 const App = () => {
   useEffect(() => {
@@ -154,7 +160,22 @@ const App = () => {
     <>
       {/* Global CSS from your <style> and glow animation */}
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap');
+        
         html { scroll-behavior: smooth; }
+        body { 
+          cursor: none; 
+          background: black; 
+          font-family: 'Manrope', sans-serif;
+          overflow-x: hidden;
+          color: #fef3c7; /* text-amber-50 */
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-family: 'Syne', sans-serif;
+        }
+        .font-name {
+          font-family: 'Lexend', sans-serif;
+        }
         body::before {
           content: '';
           position: fixed;
@@ -163,16 +184,6 @@ const App = () => {
           pointer-events: none;
           z-index: 9999;
         }
-        @keyframes gradientFlow {
-          0% { background-position:0% 50%; }
-          50% { background-position:100% 50%; }
-          100% { background-position:0% 50%; }
-        }
-        .animate-gradient {
-          background-size: 400% 400%;
-          animation: gradientFlow 12s ease infinite;
-        }
-        body { cursor: none; }
         .cursor-dot {
           position: fixed; top:0; left:0; width:10px; height:10px;
           border-radius:50%;
@@ -205,28 +216,88 @@ const App = () => {
 
         @keyframes glowPulse {
           0%, 100% {
-            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3), 0 0 20px rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), 0 0 15px rgba(251, 191, 36, 0.1);
           }
           50% {
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 0 40px rgba(251, 191, 36, 0.3);
+            border-color: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), 0 0 30px rgba(251, 191, 36, 0.3);
           }
         }
         .animate-glow {
-          animation: glowPulse 3s infinite;
+          animation: glowPulse 5s ease-in-out infinite;
+        }
+        .premium-glass {
+          background: rgba(10, 10, 10, 0.45); 
+          backdrop-filter: blur(28px);
+          border: 1px solid rgba(251, 191, 36, 0.1);
+          box-shadow: 
+            0 20px 50px -10px rgba(0, 0, 0, 0.8),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+          position: relative;
+          z-index: 1;
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-glass:hover {
+          border-color: rgba(251, 191, 36, 0.4);
+          box-shadow: 
+            0 25px 60px -5px rgba(0, 0, 0, 0.9), 
+            0 0 30px rgba(251, 191, 36, 0.2),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+          transform: translateY(-5px) scale(1.005);
+        }
+        .premium-glass::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          padding: 1px;
+          background: linear-gradient(to bottom right, rgba(251,191,36,0.3), transparent, rgba(251,191,36,0.1));
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          pointer-events: none;
+          opacity: 0.5;
+          transition: opacity 0.4s ease;
+        }
+        .premium-glass:hover::before {
+          opacity: 1;
+        }
+        .heading-shine {
+          background: linear-gradient(90deg, #fbbf24, #fcd34d, #fbbf24);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          transition: all 0.5s ease;
+        }
+        .heading-shine:hover {
+          background-position: right center;
+          text-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
         }
       `}</style>
 
-      <div className="bg-black text-amber-100 font-[Poppins]">
+      <div className="relative text-amber-100 space-y-20 pb-20">
+        <Background />
         <Hero scrollToSkills={scrollToSkills} />
         <Navbar />
-        <About />
-        <Education />
-        <Journey />
-        <Skills />
-        <Projects />
-        <ProjectDetailsPortfolio handleReload={handleReload} />
-        <ProjectDetailsChatbot handleReload={handleReload} />
-        <Contact />
+        <div className="max-w-5xl mx-auto space-y-20 px-4 shadow-none">
+          <About />
+          <Education />
+          <Journey />
+          <Internship />
+          <Skills />
+          <Projects />
+          {/* Alternating Layout Verification: L, R, L, R, L, R */}
+          <ProjectDetailsPortfolio handleReload={handleReload} /> {/* L */}
+          <ProjectDetailsEcommerce handleReload={handleReload} /> {/* R */}
+          <ProjectDetailsChatbot handleReload={handleReload} />   {/* L */}
+          <ProjectDetailsHealth handleReload={handleReload} />    {/* R */}
+          <ProjectDetailsResume handleReload={handleReload} />    {/* L */}
+          <ProjectDetailsInkify handleReload={handleReload} />    {/* R */}
+          <Contact />
+        </div>
         <Footer />
       </div>
     </>
