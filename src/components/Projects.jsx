@@ -22,7 +22,7 @@ const Projects = () => (
           Portfolio Website
         </h3>
         <p className="text-gray-400 text-sm">
-          A personal portfolio built with HTML &amp; Tailwind.
+          A personal portfolio built with React &amp; Tailwind CSS.
         </p>
       </a>
 

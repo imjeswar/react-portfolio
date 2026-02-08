@@ -51,8 +51,8 @@ const App = () => {
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
-    const mainLerp = 0.35;
-    const baseTrailLerp = 0.12;
+    const mainLerp = 0.45;
+    const baseTrailLerp = 0.18;
     let animationFrameId;
 
     const animate = () => {

@@ -19,7 +19,7 @@ const ProjectDetailsPortfolio = ({ handleReload }) => (
         </h3>
         <p className="text-gray-300 mb-6">
           My personal portfolio website showcasing my skills, journey, and
-          projects. Built using HTML, Tailwind CSS, and custom JavaScript.
+          projects. Built using React, Tailwind CSS, and custom JavaScript.
         </p>
         <div className="flex gap-4 justify-center md:justify-start">
           <a

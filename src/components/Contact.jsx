@@ -23,9 +23,10 @@ const Contact = () => {
 
     try {
       await fetch(
-        "https://jeswar.app.n8n.cloud/webhook/8211633e-b661-4e31-8b59-55221abbc6f7",
+        "https://script.google.com/macros/s/AKfycbzlKNtiFj-noyFY-ZF5NdBDvIH9ielnPF5KrXWkhadHUyYlyeUZVyJZxhPvpCcR7d8b5Q/exec",
         {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
@@ -38,6 +39,7 @@ const Contact = () => {
         }
       );
 
+      // With no-cors, we can't read the response, so we assume success if no error is thrown
       setStatus("success");
       setFormData({
         name: "",
