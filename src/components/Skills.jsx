@@ -35,7 +35,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-12 w-full premium-glass animate-glow rounded-3xl p-8 md:p-12 overflow-hidden"
+      className="py-12 w-full premium-glass animate-glow rounded-3xl p-8 md:p-12 overflow-x-hidden overflow-y-visible"
       data-aos="fade-up"
     >
       <div className="text-center">

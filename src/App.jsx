@@ -162,12 +162,17 @@ const App = () => {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap');
         
-        html { scroll-behavior: smooth; }
+        html, body { 
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          overflow-x: hidden;
+          position: relative;
+        }
         body { 
           cursor: none; 
           background: black; 
           font-family: 'Manrope', sans-serif;
-          overflow-x: hidden;
           color: #fef3c7; /* text-amber-50 */
         }
         h1, h2, h3, h4, h5, h6 {
@@ -244,7 +249,12 @@ const App = () => {
             0 25px 60px -5px rgba(0, 0, 0, 0.9), 
             0 0 30px rgba(251, 191, 36, 0.2),
             inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-          transform: translateY(-5px) scale(1.005);
+        }
+        /* Only scale on devices that support hover (desktop) to prevent "shaking" on touch */
+        @media (hover: hover) {
+          .premium-glass:hover {
+            transform: translateY(-5px) scale(1.005);
+          }
         }
         .premium-glass::before {
           content: "";
@@ -278,7 +288,7 @@ const App = () => {
         }
       `}</style>
 
-      <div className="relative text-amber-100 space-y-20 pb-20">
+      <div className="relative text-amber-100 space-y-20 pb-20 w-full overflow-x-hidden">
         <Background />
         <Hero scrollToSkills={scrollToSkills} />
         <Navbar />

@@ -7,7 +7,7 @@ const ProjectDetailsEcommerce = ({ handleReload }) => (
             <div className="md:w-1/2 flex justify-center">
                 <img
                     src="e-commerce.png"
-                    className="max-w-md rounded-lg border border-amber-300/30 shadow-2xl"
+                    className="max-w-sm w-full object-contain rounded-lg border border-amber-300/30 shadow-2xl"
                     alt="E-commerce Platform"
                 />
             </div>
