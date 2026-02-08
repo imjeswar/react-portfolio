@@ -8,7 +8,7 @@ const Journey = () => (
   >
     <div className="relative inline-block mb-8">
       <h2 className="text-4xl font-bold text-amber-200 tracking-wide heading-shine pb-2">
-        Your Journey
+        My Journey
       </h2>
       <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-gradient-to-r from-amber-400 to-amber-200 transition-all duration-500 group-hover:w-full group-hover:shadow-[0_0_12px_#fbbf24] shadow-[0_0_6px_#fbbf24]" />
     </div>
