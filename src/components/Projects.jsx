@@ -3,10 +3,10 @@ import React from "react";
 const Projects = () => (
   <section
     id="projects"
-    className="py-12 w-full premium-glass animate-glow text-center rounded-3xl p-6 md:p-12"
+    className="py-12 w-full premium-glass animate-glow text-center rounded-3xl p-6 md:p-12 group"
     data-aos="fade-up"
   >
-    <div className="relative group inline-block mb-10">
+    <div className="relative inline-block mb-10">
       <h2 className="text-4xl font-bold text-amber-100 pb-2 heading-shine">
         Projects
       </h2>
@@ -43,29 +43,15 @@ const Projects = () => (
         className="p-4 rounded-xl premium-glass animate-glow hover:shadow-[0_0_25px_rgba(251,191,36,0.8)] transition duration-300"
       >
         <h3 className="text-xl font-semibold mb-1 text-amber-100">
-          Chatbot App
+          Inkify – Text to Handwriting
         </h3>
         <p className="text-gray-400 text-sm">
-          An AI chatbot built using Python &amp; API.
+          Converts digital text into handwritten output.
         </p>
       </a>
 
-      {/* New Project 4 */}
       <a
         href="#project4-details"
-        className="p-4 rounded-xl premium-glass animate-glow hover:shadow-[0_0_25px_rgba(251,191,36,0.8)] transition duration-300"
-      >
-        <h3 className="text-xl font-semibold mb-1 text-amber-100">
-          AI Health Assistant
-        </h3>
-        <p className="text-gray-400 text-sm">
-          Python + Gemini API health wellness guide.
-        </p>
-      </a>
-
-      {/* New Project 5 */}
-      <a
-        href="#project5-details"
         className="p-4 rounded-xl premium-glass animate-glow hover:shadow-[0_0_25px_rgba(251,191,36,0.8)] transition duration-300"
       >
         <h3 className="text-xl font-semibold mb-1 text-amber-100">
@@ -76,16 +62,27 @@ const Projects = () => (
         </p>
       </a>
 
-      {/* New Project 6 */}
+      <a
+        href="#project5-details"
+        className="p-4 rounded-xl premium-glass animate-glow hover:shadow-[0_0_25px_rgba(251,191,36,0.8)] transition duration-300"
+      >
+        <h3 className="text-xl font-semibold mb-1 text-amber-100">
+          Chatbot App
+        </h3>
+        <p className="text-gray-400 text-sm">
+          An AI chatbot built using Python &amp; API.
+        </p>
+      </a>
+
       <a
         href="#project6-details"
         className="p-4 rounded-xl premium-glass animate-glow hover:shadow-[0_0_25px_rgba(251,191,36,0.8)] transition duration-300"
       >
         <h3 className="text-xl font-semibold mb-1 text-amber-100">
-          Inkify – Text to Handwriting
+          AI Health Assistant
         </h3>
         <p className="text-gray-400 text-sm">
-          Converts digital text into handwritten output.
+          Python + Gemini API health wellness guide.
         </p>
       </a>
     </div>

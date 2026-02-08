@@ -35,11 +35,11 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-12 w-full premium-glass animate-glow rounded-3xl p-6 md:p-12 overflow-x-hidden overflow-y-visible"
+      className="py-12 w-full premium-glass animate-glow rounded-3xl p-6 md:p-12 overflow-x-hidden overflow-y-visible group"
       data-aos="fade-up"
     >
       <div className="text-center">
-        <div className="relative group inline-block mb-10">
+        <div className="relative inline-block mb-10">
           <h2 className="text-4xl font-bold text-amber-100 pb-2 heading-shine">
             Skills
           </h2>
@@ -67,20 +67,20 @@ const Skills = () => {
       {/* Technical Skills - Dense Swarm */}
       <div className="mb-12">
         <h3 className="text-lg font-semibold text-amber-200 mb-8 uppercase tracking-[0.3em] text-center">Tools & Technologies</h3>
-        <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 max-w-3xl mx-auto px-2">
+        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-3xl mx-auto px-2">
           {technicalSkills.map(([name, src]) => {
             const { x, y, delay } = getOffset(name);
             return (
               <div
                 key={name}
-                className="group/skill relative flex flex-col items-center gap-2"
+                className="group/skill relative flex flex-col items-center gap-1.5 md:gap-2"
               >
                 {/* Intense Hover Glow */}
                 <div className="absolute inset-0 bg-amber-400/20 rounded-full blur-xl opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 -z-10" />
 
                 {/* Circular Glass Icon with Wave */}
                 <div
-                  className="p-4 md:p-5 flex items-center justify-center bg-black/40 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.05)] transition-all duration-300 cursor-pointer group-hover/skill:scale-110 group-hover/skill:bg-black/60 group-hover/skill:border-amber-400/50 group-hover/skill:shadow-[0_0_20px_rgba(251,191,36,0.3)] animate-skill-wave"
+                  className="p-3.5 md:p-5 flex items-center justify-center bg-black/40 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.05)] transition-all duration-300 cursor-pointer group-hover/skill:scale-110 group-hover/skill:bg-black/60 group-hover/skill:border-amber-400/50 group-hover/skill:shadow-[0_0_20px_rgba(251,191,36,0.3)] animate-skill-wave"
                   style={{
                     '--tw-translate-x': `${x}px`,
                     '--tw-translate-y': `${y}px`,
@@ -88,11 +88,11 @@ const Skills = () => {
                     animationDelay: `${delay}s`
                   }}
                 >
-                  <img src={src} className="w-6 h-6 object-contain brightness-110 saturate-125 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]" alt={name} />
+                  <img src={src} className="w-5 h-5 md:w-6 md:h-6 object-contain brightness-110 saturate-125 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]" alt={name} />
                 </div>
 
                 {/* Fixed Bright Name Label */}
-                <span className="text-[10px] text-amber-100 font-semibold uppercase tracking-widest text-center">
+                <span className="text-[9px] md:text-[10px] text-amber-100 font-semibold uppercase tracking-widest text-center">
                   {name}
                 </span>
               </div>
@@ -104,11 +104,11 @@ const Skills = () => {
       {/* Professional Skills Section */}
       <div className="mt-16 text-center border-t border-white/5 pt-10">
         <h3 className="text-md font-semibold text-amber-200 mb-8 uppercase tracking-[0.2em]">Professional Skills</h3>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
           {softSkills.map((skill) => (
             <div
               key={skill}
-              className="px-6 py-2 premium-glass rounded-lg text-amber-100 text-xs font-semibold hover:text-amber-300 hover:border-amber-300/30 hover:-translate-y-1 transition-all duration-300 cursor-default"
+              className="px-4 py-1.5 md:px-6 md:py-2 premium-glass rounded-lg text-amber-100 text-[10px] md:text-xs font-semibold hover:text-amber-300 hover:border-amber-300/30 hover:-translate-y-1 transition-all duration-300 cursor-default"
             >
               {skill}
             </div>

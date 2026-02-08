@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = ({ scrollToSkills }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen py-20 md:py-0 text-center px-6">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen py-12 md:py-0 text-center px-6">
       {/* Left: Text */}
       <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight">
@@ -68,7 +68,7 @@ const Hero = ({ scrollToSkills }) => {
         <img
           src="jeswar1.png"
           alt="Jeswar A M"
-          className="max-h-[480px] object-contain drop-shadow-2xl"
+          className="max-h-[320px] md:max-h-[480px] object-contain drop-shadow-2xl"
         />
 
         {/* Skills Icons Row – smaller icons + dark circular background */}

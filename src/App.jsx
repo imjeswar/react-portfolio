@@ -166,7 +166,7 @@ const App = () => {
           margin: 0;
           padding: 0;
           width: 100%;
-          overflow-x: hidden;
+          overflow-x: clip;
           position: relative;
         }
         body { 
@@ -297,7 +297,7 @@ const App = () => {
         }
       `}</style>
 
-      <div className="relative text-amber-100 space-y-20 pb-20 w-full overflow-x-hidden">
+      <div className="relative text-amber-100 space-y-20 pb-20">
         <Background />
         <Hero scrollToSkills={scrollToSkills} />
         <Navbar />
@@ -311,10 +311,10 @@ const App = () => {
           {/* Alternating Layout Verification: L, R, L, R, L, R */}
           <ProjectDetailsPortfolio handleReload={handleReload} /> {/* L */}
           <ProjectDetailsEcommerce handleReload={handleReload} /> {/* R */}
+          <ProjectDetailsInkify handleReload={handleReload} />    {/* L */}
+          <ProjectDetailsResume handleReload={handleReload} />    {/* R */}
           <ProjectDetailsChatbot handleReload={handleReload} />   {/* L */}
           <ProjectDetailsHealth handleReload={handleReload} />    {/* R */}
-          <ProjectDetailsResume handleReload={handleReload} />    {/* L */}
-          <ProjectDetailsInkify handleReload={handleReload} />    {/* R */}
           <Contact />
         </div>
         <Footer />

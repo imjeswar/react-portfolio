@@ -4,21 +4,22 @@ const Navbar = () => {
   const navItems = [
     ["About", "#about"],
     ["Education", "#education"],
-    ["My Journey", "#journey"],
+    ["Journey", "#journey"],
+    ["Internship", "#internship"],
     ["Skills", "#skills"],
     ["Projects", "#projects"],
     ["Contact", "#contact"],
   ];
 
   return (
-    <nav className="sticky top-0 z-[100] w-full flex justify-center py-4 px-4 overflow-visible">
-      <div className="premium-glass animate-glow rounded-full px-4 md:px-8 py-3 ring-1 ring-white/5 transition-all duration-300 hover:border-amber-400/40">
-        <ul className="flex items-center justify-center gap-2 md:gap-8">
+    <nav className="sticky top-0 z-[100] w-full flex justify-center py-4 px-2 md:px-4 overflow-visible">
+      <div className="premium-glass animate-glow rounded-full px-3 md:px-8 py-2 md:py-3 ring-1 ring-white/5 transition-all duration-300 hover:border-amber-400/40">
+        <ul className="flex items-center justify-center gap-1 md:gap-8">
           {navItems.map(([label, href]) => (
             <li key={href}>
               <a
                 href={href}
-                className="relative text-xs md:text-sm font-medium text-amber-100/70 hover:text-amber-300 transition-all duration-300 group px-2 md:px-3 py-1.5"
+                className="relative text-[10px] md:text-sm font-medium text-amber-100/70 hover:text-amber-300 transition-all duration-300 group px-1.5 md:px-3 py-1 md:py-1.5"
               >
                 {label}
                 {/* Neon Underline Effect */}

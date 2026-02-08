@@ -1,13 +1,13 @@
 import React from "react";
 
 const ProjectDetailsInkify = ({ handleReload }) => (
-    <section id="project6-details" className="w-full scroll-mt-20">
-        <div className="flex flex-col md:flex-row-reverse items-center gap-10 premium-glass animate-glow p-6 md:p-12 rounded-3xl shadow-lg hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] transition duration-300">
+    <section id="project3-details" className="w-full scroll-mt-20 group">
+        <div className="flex flex-col md:flex-row items-center gap-10 premium-glass animate-glow p-6 md:p-12 rounded-3xl shadow-lg hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] transition duration-300">
             {/* Image (Left) */}
-            <div className="md:w-1/2 flex justify-center">
+            <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
                 <img
-                    src="portfolio.png"
-                    className="max-w-sm rounded-lg border border-gray-700"
+                    src="inkify.png"
+                    className="w-full max-w-[400px] aspect-[4/3] object-contain rounded-xl border border-amber-300/20 shadow-2xl shadow-amber-900/40"
                     alt="Inkify"
                 />
             </div>
@@ -32,8 +32,9 @@ const ProjectDetailsInkify = ({ handleReload }) => (
                         View Code
                     </a>
                     <a
-                        href="#"
-                        onClick={handleReload}
+                        href="https://inkify-text-eosin.vercel.app/"
+                        target="_blank"
+                        rel="noreferrer"
                         className="px-6 py-2 bg-amber-300 text-black rounded-lg hover:bg-amber-400 transition"
                     >
                         Live Demo
