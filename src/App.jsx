@@ -181,6 +181,10 @@ const App = () => {
         .font-name {
           font-family: 'Lexend', sans-serif;
         }
+        @media (pointer: coarse) {
+          body { cursor: auto; }
+          .cursor-dot, .cursor-trail { display: none !important; }
+        }
         body::before {
           content: '';
           position: fixed;
@@ -242,6 +246,11 @@ const App = () => {
           position: relative;
           z-index: 1;
           transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          /* Hardware acceleration to prevent blinking/flickering on mobile */
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
         }
         .premium-glass:hover {
           border-color: rgba(251, 191, 36, 0.4);
@@ -292,7 +301,7 @@ const App = () => {
         <Background />
         <Hero scrollToSkills={scrollToSkills} />
         <Navbar />
-        <div className="max-w-5xl mx-auto space-y-20 px-4 shadow-none">
+        <div className="max-w-5xl mx-auto space-y-12 md:space-y-20 px-2 md:px-4 shadow-none">
           <About />
           <Education />
           <Journey />

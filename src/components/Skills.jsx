@@ -35,7 +35,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-12 w-full premium-glass animate-glow rounded-3xl p-8 md:p-12 overflow-x-hidden overflow-y-visible"
+      className="py-12 w-full premium-glass animate-glow rounded-3xl p-6 md:p-12 overflow-x-hidden overflow-y-visible"
       data-aos="fade-up"
     >
       <div className="text-center">
@@ -56,12 +56,18 @@ const Skills = () => {
         .animate-skill-wave {
           animation: skill-wave var(--duration) ease-in-out infinite;
         }
+        @media (max-width: 640px) {
+          .animate-skill-wave {
+            animation: none; /* Disable wave on mobile to reduce blinking */
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) !important;
+          }
+        }
       `}</style>
 
       {/* Technical Skills - Dense Swarm */}
       <div className="mb-12">
         <h3 className="text-lg font-semibold text-amber-200 mb-8 uppercase tracking-[0.3em] text-center">Tools & Technologies</h3>
-        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-3xl mx-auto px-2">
+        <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 max-w-3xl mx-auto px-2">
           {technicalSkills.map(([name, src]) => {
             const { x, y, delay } = getOffset(name);
             return (
@@ -74,7 +80,7 @@ const Skills = () => {
 
                 {/* Circular Glass Icon with Wave */}
                 <div
-                  className="p-5 flex items-center justify-center bg-black/40 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.05)] transition-all duration-300 cursor-pointer group-hover/skill:scale-110 group-hover/skill:bg-black/60 group-hover/skill:border-amber-400/50 group-hover/skill:shadow-[0_0_20px_rgba(251,191,36,0.3)] animate-skill-wave"
+                  className="p-4 md:p-5 flex items-center justify-center bg-black/40 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.05)] transition-all duration-300 cursor-pointer group-hover/skill:scale-110 group-hover/skill:bg-black/60 group-hover/skill:border-amber-400/50 group-hover/skill:shadow-[0_0_20px_rgba(251,191,36,0.3)] animate-skill-wave"
                   style={{
                     '--tw-translate-x': `${x}px`,
                     '--tw-translate-y': `${y}px`,

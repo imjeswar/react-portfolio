@@ -4,7 +4,7 @@ const Internship = () => {
     return (
         <section
             id="internship"
-            className="w-full p-8 md:p-12 premium-glass animate-glow rounded-3xl"
+            className="w-full p-6 md:p-12 premium-glass animate-glow rounded-3xl"
             data-aos="fade-up"
         >
             <div className="relative group inline-block mb-10">

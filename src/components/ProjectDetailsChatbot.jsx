@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectDetailsChatbot = ({ handleReload }) => (
   <section id="project3-details" className="w-full scroll-mt-20">
-    <div className="flex flex-col md:flex-row items-center gap-10 premium-glass animate-glow p-8 md:p-12 rounded-3xl shadow-lg transition duration-300">
+    <div className="flex flex-col md:flex-row items-center gap-10 premium-glass animate-glow p-6 md:p-12 rounded-3xl shadow-lg transition duration-300">
       {/* Image (Left) */}
       <div className="md:w-1/2 flex justify-center">
         <img

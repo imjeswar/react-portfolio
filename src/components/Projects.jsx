@@ -3,7 +3,7 @@ import React from "react";
 const Projects = () => (
   <section
     id="projects"
-    className="py-12 w-full premium-glass animate-glow text-center rounded-3xl p-8 md:p-12"
+    className="py-12 w-full premium-glass animate-glow text-center rounded-3xl p-6 md:p-12"
     data-aos="fade-up"
   >
     <div className="relative group inline-block mb-10">

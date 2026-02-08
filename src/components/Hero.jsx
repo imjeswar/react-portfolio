@@ -2,10 +2,10 @@ import React from "react";
 
 const Hero = ({ scrollToSkills }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-screen text-center px-6">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen py-20 md:py-0 text-center px-6">
       {/* Left: Text */}
       <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight">
           Hi, I'm <span className="text-amber-300 font-name">Jeswar</span>
         </h1>
         <h2 className="text-2xl mt-4 text-amber-200 font-semibold uppercase tracking-widest">
@@ -18,13 +18,13 @@ const Hero = ({ scrollToSkills }) => {
         <div className="flex gap-4 mt-6">
           <a
             href="#projects"
-            className="px-6 py-3 rounded-full font-bold bg-amber-200 text-black hover:bg-white transition"
+            className="px-5 py-2.5 md:px-6 md:py-3 rounded-full font-bold bg-amber-200 text-black hover:bg-white transition text-sm md:text-base"
           >
             ⚡ Explore My Work
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 rounded-full font-bold bg-amber-200 text-black hover:bg-white transition"
+            className="px-5 py-2.5 md:px-6 md:py-3 rounded-full font-bold bg-amber-200 text-black hover:bg-white transition text-sm md:text-base"
           >
             📩 Get In Touch
           </a>
@@ -108,7 +108,7 @@ const Hero = ({ scrollToSkills }) => {
               key={title}
               type="button"
               onClick={scrollToSkills}
-              className="p-3 rounded-full bg-gray-900/90 hover:bg-amber-200 transition flex items-center justify-center"
+              className="p-2.5 md:p-3 rounded-full bg-gray-900/90 hover:bg-amber-200 transition flex items-center justify-center"
               title={title}
             >
               <img

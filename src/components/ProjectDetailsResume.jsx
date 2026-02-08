@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectDetailsResume = ({ handleReload }) => (
     <section id="project5-details" className="w-full scroll-mt-20">
-        <div className="flex flex-col md:flex-row items-center gap-10 premium-glass animate-glow p-8 md:p-12 rounded-3xl shadow-lg hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] transition duration-300">
+        <div className="flex flex-col md:flex-row items-center gap-10 premium-glass animate-glow p-6 md:p-12 rounded-3xl shadow-lg hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] transition duration-300">
             {/* Image (Right) */}
             <div className="md:w-1/2 flex justify-center">
                 <img
