@@ -99,7 +99,7 @@ export default function ChatbotWidget() {
     setMessages((p) => [...p, { id, role: "assistant", content: "", sources: [], isStreaming: true }]);
 
     try {
-      const res = await fetch("http://localhost:8000/api/portfolio/chat", {
+      const res = await fetch("https://react-portfolio-1-r0cj.onrender.com/api/portfolio/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: text, history }),
