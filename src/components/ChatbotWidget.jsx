@@ -101,10 +101,10 @@ export default function ChatbotWidget() {
     setMessages((p) => [...p, { id, role: "assistant", content: "", sources: [], isStreaming: true }]);
 
     try {
-      const baseApiUrl = import.meta.env.VITE_API_URL || 
+      const baseApiUrl = (import.meta.env.VITE_API_URL || 
         (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
           ? "http://localhost:8000"
-          : "https://react-portfolio-1-r0cj.onrender.com");
+          : "https://react-portfolio-1-r0cj.onrender.com")).replace(/\/+$/, "");
       const backendUrl = `${baseApiUrl}/api/portfolio/chat`;
 
       const res = await fetch(backendUrl, {
