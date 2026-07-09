@@ -105,21 +105,21 @@ async def lifespan(app: FastAPI):
             collection_name = retriever.collection.name
         logger.info(f"[Startup] ChromaDB initialized. Collection '{collection_name}' — {chunks_count} chunks loaded.")
         
-        # Auto-index portfolio data if empty
+        # Auto-index portfolio data in the background if empty to prevent event loop blocking
         if chunks_count == 0:
-            logger.info("[Startup] Vector database is empty. Auto-indexing portfolio data...")
+            logger.info("[Startup] Vector database is empty. Scheduling auto-indexing in background thread...")
             from backend.services.index_service import IndexService
-            index_res = IndexService.index_portfolio_data()
-            if index_res.get("status") == "success":
-                retriever = PortfolioRetriever()
-                if retriever.collection:
-                    chunks_count = retriever.collection.count()
-                    collection_name = retriever.collection.name
-                logger.info(f"[Startup] Auto-indexing complete. Loaded {chunks_count} chunks.")
-            else:
-                logger.error(f"[Startup] Auto-indexing failed: {index_res.get('message')}")
+            
+            def run_background_index():
+                try:
+                    res = IndexService.index_portfolio_data()
+                    logger.info(f"[Startup] Background auto-indexing finished: {res}")
+                except Exception as ex:
+                    logger.error(f"[Startup] Background auto-indexing failed: {ex}")
+            
+            asyncio.create_task(asyncio.to_thread(run_background_index))
     except Exception as e:
-        logger.error(f"[Startup] ChromaDB initialization/auto-indexing failed: {e}")
+        logger.error(f"[Startup] ChromaDB initialization check failed: {e}")
 
     # --- 3. LLM Provider + Validation ---
     from backend.services.llm_service import (
@@ -135,7 +135,8 @@ async def lifespan(app: FastAPI):
     llm_status_label = "READY"
 
     if isinstance(llm_provider, OpenRouterLLMProvider):
-        validation = llm_provider.validate()
+        # Run key validation in a separate thread so it doesn't hang the startup lifecycle
+        validation = await asyncio.to_thread(llm_provider.validate)
         active_model = llm_provider.active_model
         status = llm_provider.status
 
