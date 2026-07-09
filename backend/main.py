@@ -104,8 +104,22 @@ async def lifespan(app: FastAPI):
             chunks_count = retriever.collection.count()
             collection_name = retriever.collection.name
         logger.info(f"[Startup] ChromaDB initialized. Collection '{collection_name}' — {chunks_count} chunks loaded.")
+        
+        # Auto-index portfolio data if empty
+        if chunks_count == 0:
+            logger.info("[Startup] Vector database is empty. Auto-indexing portfolio data...")
+            from backend.services.index_service import IndexService
+            index_res = IndexService.index_portfolio_data()
+            if index_res.get("status") == "success":
+                retriever = PortfolioRetriever()
+                if retriever.collection:
+                    chunks_count = retriever.collection.count()
+                    collection_name = retriever.collection.name
+                logger.info(f"[Startup] Auto-indexing complete. Loaded {chunks_count} chunks.")
+            else:
+                logger.error(f"[Startup] Auto-indexing failed: {index_res.get('message')}")
     except Exception as e:
-        logger.error(f"[Startup] ChromaDB initialization failed: {e}")
+        logger.error(f"[Startup] ChromaDB initialization/auto-indexing failed: {e}")
 
     # --- 3. LLM Provider + Validation ---
     from backend.services.llm_service import (

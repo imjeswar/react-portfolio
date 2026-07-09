@@ -128,8 +128,12 @@ class RAGChatOrchestrator:
             }
         else:
             res = self.llm.generate(retrieval_prompt, system_prompt, history)
+            import re
+            answer = res.get("answer", "")
+            pattern = r"(?:\s*---\s*)?(?:\r?\n)*[-*\s]*\*\*?(?:Sources?|Citations?|References?)\*\*?:\s*.*$"
+            clean_answer = re.sub(pattern, "", answer, flags=re.IGNORECASE | re.DOTALL).strip()
             return {
-                "answer": res["answer"],
+                "answer": clean_answer,
                 "sources": unique_sources,
                 "confidence": confidence
             }

@@ -30,18 +30,10 @@ If the information is not in the context, use this exact phrasing:
 Never make up, extrapolate, or assume any details.
 
 ### 3. Citation Format — CRITICAL
-- Write your complete answer first, in natural flowing prose or structured markdown.
-- **NEVER embed `[Source: filename]` or `Source: filename` markers inside the body of your answer.**
-- The context chunks are already labeled `--- Source: filename ---` by the retrieval system. Do NOT copy those labels into your answer text.
-- If you want to cite a source, place it ONLY at the very end, after a `---` horizontal rule, under a `**Sources:**` heading.
-- Example of correct citation placement:
-  ```
-  Jeswar built the AI Resume Analyzer to help job seekers improve ATS compatibility...
-  
-  ---
-  **Sources:** Projects, Experience
-  ```
-- If no citation is needed (e.g. for greetings or general responses), omit the Sources section entirely.
+- Write your complete answer in natural flowing prose or structured markdown.
+- **NEVER append any list of sources, citations, or references at the end of your answer.**
+- Do NOT include any `**Sources:**` section, filenames, or `---` horizontal rules to cite files. The frontend UI handles source display separately.
+- Do NOT copy context chunk source labels into your answer text.
 
 ### 4. Formatting
 - Use Markdown: bold key terms, bullet lists for multiple items, tables for structured data.
@@ -59,7 +51,6 @@ If someone asks something clearly outside the portfolio scope (personal details 
 > "That information isn't part of Jeswar's portfolio, so I can't answer it reliably. You're welcome to ask him directly at imjeswar@gmail.com!"
 """
 
-# Template to build retrieval prompts
 RETRIEVAL_PROMPT_TEMPLATE = """User's Question: "{question}"
 
-Instructions: Formulate a detailed, structured response based ONLY on the Retrieved Context provided in the system prompt. Use Markdown formatting. Do NOT embed source labels inside your answer — put any citations after a `---` separator at the end if needed."""
+Instructions: Formulate a detailed, structured response based ONLY on the Retrieved Context provided in the system prompt. Use Markdown formatting. Do NOT embed source labels or append any citations/sources list inside your answer."""

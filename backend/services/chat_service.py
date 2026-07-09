@@ -101,8 +101,12 @@ class PortfolioChatService:
             }
         else:
             llm_response = self.llm.generate(user_prompt, system_prompt, cleaned_history)
+            import re
+            answer = llm_response.get("answer", "")
+            pattern = r"(?:\s*---\s*)?(?:\r?\n)*[-*\s]*\*\*?(?:Sources?|Citations?|References?)\*\*?:\s*.*$"
+            clean_answer = re.sub(pattern, "", answer, flags=re.IGNORECASE | re.DOTALL).strip()
             return {
-                "answer": llm_response["answer"],
+                "answer": clean_answer,
                 "sources": unique_sources,
                 "actions": actions
             }

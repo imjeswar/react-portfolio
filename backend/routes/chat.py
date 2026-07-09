@@ -140,10 +140,14 @@ def chat_stream(
         # Save assistant message at the end
         db_read = SessionLocal()  # Use fresh thread-local session for background write
         try:
+            import re
+            full_text = "".join(full_text_list)
+            pattern = r"(?:\s*---\s*)?(?:\r?\n)*[-*\s]*\*\*?(?:Sources?|Citations?|References?)\*\*?:\s*.*$"
+            clean_text = re.sub(pattern, "", full_text, flags=re.IGNORECASE | re.DOTALL).strip()
             assistant_msg = Message(
                 conversation_id=conversation.id,
                 sender="assistant",
-                text="".join(full_text_list),
+                text=clean_text,
                 sources=json.dumps(sources),
                 confidence=confidence
             )

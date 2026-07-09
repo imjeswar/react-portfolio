@@ -37,7 +37,9 @@ const extractContactLinks = (content = "", sources = []) => {
 
 const renderMarkdown = (text = "") => {
   if (!text) return "";
-  let html = text
+  // Strip trailing sources/citations/references section if any
+  const cleanedText = text.replace(/(?:\s*---\s*)?(?:\r?\n)*[-*\s]*\*\*?(?:Sources?|Citations?|References?)\*\*?:\s*[\s\S]*$/i, "");
+  let html = cleanedText
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
     .replace(/\*\*(.*?)\*\*/g, "<strong class='text-amber-200'>$1</strong>")
     .replace(/`(.*?)`/g, "<code class='bg-amber-400/10 px-1 rounded text-amber-300 text-[10px] font-mono'>$1</code>")
@@ -99,7 +101,13 @@ export default function ChatbotWidget() {
     setMessages((p) => [...p, { id, role: "assistant", content: "", sources: [], isStreaming: true }]);
 
     try {
-      const res = await fetch("https://react-portfolio-1-r0cj.onrender.com/api/portfolio/chat", {
+      const baseApiUrl = import.meta.env.VITE_API_URL || 
+        (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+          ? "http://localhost:8000"
+          : "https://react-portfolio-1-r0cj.onrender.com");
+      const backendUrl = `${baseApiUrl}/api/portfolio/chat`;
+
+      const res = await fetch(backendUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: text, history }),
