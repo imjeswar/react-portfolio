@@ -68,19 +68,27 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
             logger.error(f"OpenAI embed_documents failed: {e}")
             raise e
 
+import requests
+
 class GeminiEmbeddingProvider(EmbeddingProvider):
     def __init__(self, api_key: str):
-        self.client = OpenAI(
-            api_key=api_key,
-            base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-        )
-        self.model = "text-embedding-004"
-        self.dimension = 768
+        self.api_key = api_key
+        self.model = "models/gemini-embedding-2"
+        self.dimension = 3072
 
     def embed_query(self, text: str) -> List[float]:
         try:
-            response = self.client.embeddings.create(input=[text], model=self.model)
-            return response.data[0].embedding
+            url = f"https://generativelanguage.googleapis.com/v1beta/{self.model}:embedContent?key={self.api_key}"
+            payload = {
+                "model": self.model,
+                "content": {
+                    "parts": [{"text": text}]
+                }
+            }
+            res = requests.post(url, json=payload, timeout=15)
+            res.raise_for_status()
+            data = res.json()
+            return data["embedding"]["values"]
         except Exception as e:
             logger.error(f"Gemini embed_query failed: {e}")
             raise e
@@ -90,11 +98,24 @@ class GeminiEmbeddingProvider(EmbeddingProvider):
             return []
         try:
             embeddings = []
-            batch_size = 500
+            batch_size = 100
             for i in range(0, len(texts), batch_size):
                 batch = texts[i:i + batch_size]
-                response = self.client.embeddings.create(input=batch, model=self.model)
-                embeddings.extend([data.embedding for data in response.data])
+                url = f"https://generativelanguage.googleapis.com/v1beta/{self.model}:batchEmbedContents?key={self.api_key}"
+                payload = {
+                    "requests": [
+                        {
+                            "model": self.model,
+                            "content": {
+                                "parts": [{"text": t}]
+                            }
+                        } for t in batch
+                    ]
+                }
+                res = requests.post(url, json=payload, timeout=30)
+                res.raise_for_status()
+                data = res.json()
+                embeddings.extend([e["values"] for e in data["embeddings"]])
             return embeddings
         except Exception as e:
             logger.error(f"Gemini embed_documents failed: {e}")
