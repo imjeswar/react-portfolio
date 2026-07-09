@@ -5,7 +5,14 @@ from fastapi import Request
 from backend.core.interfaces import LLMProvider
 from backend.services.conversation import ConversationService
 from backend.services.retriever import PortfolioRetriever
-from backend.prompts.portfolio_prompt import PORTFOLIO_SYSTEM_PROMPT, RETRIEVAL_PROMPT_TEMPLATE
+from backend.services.intent_classifier import IntentClassifier
+from backend.prompts.portfolio_prompt import (
+    PORTFOLIO_STRICT_PROMPT,
+    GENERAL_CONCEPT_WITH_CONTEXT_PROMPT,
+    GENERAL_CONCEPT_ONLY_PROMPT,
+    MIXED_PROMPT,
+    RETRIEVAL_PROMPT_TEMPLATE
+)
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +39,10 @@ class PortfolioChatService:
         self.llm = _get_llm_from_app_state(request)
 
     def chat(self, question: str, history: List[Dict[str, str]], stream: bool = False) -> Dict[str, Any]:
-        """Orchestrates query -> history trim -> hybrid retrieve -> prompt build -> LLM call/stream."""
+        """Orchestrates query -> intent classification -> history trim -> hybrid retrieve -> prompt build -> LLM call/stream."""
+        # 0. Classify intent
+        intent = IntentClassifier.classify(question)
+
         # 1. Trim and clean conversation history (avoid prompt bloat and clean error states)
         cleaned_history = ConversationService.trim_history(history, limit=8)
 
@@ -67,8 +77,19 @@ class PortfolioChatService:
                 seen_sources.add(key)
                 unique_sources.append(s)
 
-        # 4. Construct prompts
-        system_prompt = PORTFOLIO_SYSTEM_PROMPT.format(context=context_str if context_str else "No context retrieved.")
+        # 4. Construct prompts based on intent and context presence
+        has_context = len(retrieved_chunks) > 0
+        
+        if intent == "portfolio":
+            system_prompt = PORTFOLIO_STRICT_PROMPT.format(context=context_str if context_str else "No context retrieved.")
+        elif intent == "general":
+            if has_context:
+                system_prompt = GENERAL_CONCEPT_WITH_CONTEXT_PROMPT.format(context=context_str)
+            else:
+                system_prompt = GENERAL_CONCEPT_ONLY_PROMPT
+        else:  # mixed
+            system_prompt = MIXED_PROMPT.format(context=context_str if context_str else "No context retrieved.")
+
         user_prompt = RETRIEVAL_PROMPT_TEMPLATE.format(question=question)
 
         # Determine scroll actions based on keywords in the question

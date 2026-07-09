@@ -1,3 +1,9 @@
+---
+title: Contact Details
+category: general
+tags: Contact, Socials, Phone, Email
+---
+
 # Contact - Jeswar A M
 
 Jeswar is open to internship opportunities, freelance projects, collaborations, and general inquiries. Here is how to reach him:
