@@ -41,3 +41,14 @@ def portfolio_chat_stream(request: Request, body: PortfolioChatRequest):
             yield f"data: {json.dumps({'text': text_chunk})}\n\n"
 
     return StreamingResponse(sse_generator(), media_type="text/event-stream")
+
+
+@router.get("/index")
+def trigger_indexing():
+    try:
+        from backend.services.index_service import IndexService
+        res = IndexService.index_portfolio_data()
+        return res
+    except Exception as e:
+        logger.error(f"Manual indexing failed: {e}")
+        return {"status": "error", "message": str(e)}
