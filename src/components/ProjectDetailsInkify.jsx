@@ -27,7 +27,7 @@ const ProjectDetailsInkify = ({ handleReload }) => (
                         href="#contact"
                         className="px-6 py-2 bg-gray-900 border border-amber-300 rounded-lg hover:bg-amber-200 hover:text-black transition"
                     >
-                        Contact Details
+                        View Code
                     </a>
                     <a
                         href="https://inkify-text-eosin.vercel.app/"
