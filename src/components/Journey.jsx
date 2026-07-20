@@ -15,7 +15,7 @@ const Journey = () => (
 
     <p className="text-gray-300 leading-relaxed hover:text-white transition duration-300">
       I’m currently pursuing B.Tech in Artificial Intelligence &amp; Data
-      Science at Dhanalakshmi Srinivasan University, Trichy (Pre-final Year).
+      Science at Dhanalakshmi Srinivasan University, Trichy (Final Year).
       Over time, I’ve developed a strong passion for web programming and
       building impactful digital solutions. My curiosity pushes me to explore
       both frontend and backend development while experimenting with modern

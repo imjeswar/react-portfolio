@@ -21,7 +21,7 @@ Here are some things you can ask me:
 
 ## Summary
 
-Jeswar A M is a pre-final year B.Tech student in Artificial Intelligence & Data Science at Dhanalakshmi Srinivasan University, Trichy. He is a passionate Web Developer and AI Enthusiast, skilled in both frontend and backend development.
+Jeswar A M is a final year B.Tech student in Artificial Intelligence & Data Science at Dhanalakshmi Srinivasan University, Trichy. He is a passionate Web Developer and AI Enthusiast, skilled in both frontend and backend development.
 
 He loves crafting interactive digital experiences using modern frameworks and exploring how AI can solve real-world problems. His work spans full-stack web development, RAG-based AI systems, natural language processing, and cloud deployment.
 

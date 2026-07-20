@@ -15,7 +15,7 @@ const Hero = ({ scrollToSkills }) => {
           Crafting digital experiences with modern web technologies and
           exploring AI to build solutions that matter.
         </p>
-        <div className="flex gap-4 mt-6">
+        <div className="flex flex-wrap gap-4 mt-6">
           <a
             href="#projects"
             className="px-5 py-2.5 md:px-6 md:py-3 rounded-full font-bold bg-amber-200 text-black hover:bg-white transition text-sm md:text-base"
@@ -28,6 +28,14 @@ const Hero = ({ scrollToSkills }) => {
           >
             📩 Get In Touch
           </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="px-5 py-2.5 md:px-6 md:py-3 rounded-full font-bold bg-amber-200 text-black hover:bg-white transition text-sm md:text-base"
+          >
+            📄 View Resume
+          </a>
         </div>
         <div className="flex gap-6 mt-8">
           <a
@@ -35,12 +43,14 @@ const Hero = ({ scrollToSkills }) => {
             target="_blank"
             rel="noreferrer"
             className="p-3 rounded-full bg-gray-900 hover:bg-amber-200 hover:text-black transition"
+            title="WhatsApp"
           >
             📱
           </a>
           <a
             href="mailto:imjeswar@gmail.com"
             className="p-3 rounded-full bg-gray-900 hover:bg-amber-200 hover:text-black transition"
+            title="Email"
           >
             ✉
           </a>
@@ -49,16 +59,27 @@ const Hero = ({ scrollToSkills }) => {
             target="_blank"
             rel="noreferrer"
             className="p-3 rounded-full bg-gray-900 hover:bg-amber-200 hover:text-black transition"
+            title="LinkedIn"
           >
             💼
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/imjeswar"
             target="_blank"
             rel="noreferrer"
             className="p-3 rounded-full bg-gray-900 hover:bg-amber-200 hover:text-black transition"
+            title="GitHub"
           >
             💻
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="p-3 rounded-full bg-gray-900 hover:bg-amber-200 hover:text-black transition"
+            title="View Resume"
+          >
+            📄
           </a>
         </div>
       </div>

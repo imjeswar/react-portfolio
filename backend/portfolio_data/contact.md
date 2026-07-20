@@ -33,7 +33,7 @@ He is open to remote work and online collaboration with teams globally.
 
 ## Availability
 
-Jeswar is currently a pre-final year B.Tech student and is available for:
+Jeswar is currently a final year B.Tech student and is available for:
 - Part-time freelance projects
 - Remote internships
 - Open source collaboration

@@ -23,12 +23,10 @@ const ProjectDetailsFitzone = () => (
 
         <div className="flex gap-4 justify-center md:justify-start">
           <a
-            href="https://github.com/imjeswar/gym-management-.git"
-            target="_blank"
-            rel="noreferrer"
+            href="#contact"
             className="px-6 py-2 bg-gray-900 border border-amber-300 rounded-lg hover:bg-amber-200 hover:text-black transition"
           >
-            View Code
+            Contact Details
           </a>
           <a
             href="https://gym-management-seven-liard.vercel.app/"

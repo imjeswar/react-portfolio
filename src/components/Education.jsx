@@ -27,7 +27,7 @@ const Education = () => (
           <p className="text-amber-100">
             Dhanalakshmi Srinivasan University, Trichy
           </p>
-          <p className="text-sm text-gray-400">Pre-final Year | 2023 – 2027</p>
+          <p className="text-sm text-gray-400">Final Year | 2023 – 2027</p>
           <p className="mt-2 text-gray-300">
             Currently pursuing with focus on Artificial Intelligence, Data
             Science, and modern applications in AI. 7.2 CGPA
