@@ -72,6 +72,17 @@ export default function ChatbotWidget() {
   const inputRef = useRef(null);
 
   useEffect(() => {
+    // Silent warm-up ping to wake up free-tier backend (e.g. Render) on page load
+    const baseApiUrl = (
+      import.meta.env.VITE_API_URL ||
+      (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://localhost:8000"
+        : "https://react-portfolio-1-r0cj.onrender.com")
+    ).replace(/\/+$/, "");
+    fetch(`${baseApiUrl}/`).catch(() => {});
+  }, []);
+
+  useEffect(() => {
     if (open) {
       endRef.current?.scrollIntoView({ behavior: "smooth" });
       setTimeout(() => inputRef.current?.focus(), 150);
