@@ -55,10 +55,10 @@ const Projects = () => (
         className="p-4 rounded-xl premium-glass animate-glow hover:shadow-[0_0_25px_rgba(251,191,36,0.8)] transition duration-300"
       >
         <h3 className="text-xl font-semibold mb-1 text-amber-100">
-          AI Resume Analyzer
+          AI Resume Simulator
         </h3>
         <p className="text-gray-400 text-sm">
-          Analyzes resumes using AI and NLP techniques.
+          ATS Resume Screening Simulator &amp; Optimizer.
         </p>
       </a>
 
@@ -79,10 +79,10 @@ const Projects = () => (
         className="p-4 rounded-xl premium-glass animate-glow hover:shadow-[0_0_25px_rgba(251,191,36,0.8)] transition duration-300"
       >
         <h3 className="text-xl font-semibold mb-1 text-amber-100">
-          Chatbot App
+          AI Knowledge Assistant
         </h3>
         <p className="text-gray-400 text-sm">
-          An AI chatbot built using Python &amp; API.
+          Enterprise RAG Dashboard &amp; AI Assistant.
         </p>
       </a>
 

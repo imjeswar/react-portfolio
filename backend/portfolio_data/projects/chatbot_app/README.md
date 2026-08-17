@@ -1,16 +1,20 @@
 ---
-title: Conversational Chatbot App
+title: AI Knowledge Assistant - Enterprise RAG Dashboard
 category: project
-tech: Python, Streamlit, Gemini API
-tags: Conversational AI, Streamlit, Gemini
+tech: Next.js / React, Python, FastAPI, RAG, Vector Search, LLM
+tags: Enterprise RAG, Conversational AI, Knowledge Assistant, Dashboard
+live_demo: https://ai-rag-chatbot-neon.vercel.app/
 ---
 
-# Streamlit Chatbot App
+# AI Knowledge Assistant - Enterprise RAG Dashboard
 
 ## Overview
-This project was Jeswar's first dive into building chat interfaces with Large Language Models. It is a lightweight web application that connects to the Gemini API, maintaining a clean chat window and multi-turn conversational memory.
+An Enterprise RAG Dashboard and conversational AI assistant built for intelligent knowledge retrieval, document indexing, and interactive Q&A.
+
+## Live Demo
+- [Live Demo](https://ai-rag-chatbot-neon.vercel.app/)
 
 ## Core Features
-- **Conversational Memory**: Maintains chat history and formats context for multi-turn user queries.
-- **Fast UI prototyping**: Built with Streamlit for clean layout design and responsive interfaces.
-- **Direct API Integration**: Integrates directly with Google's Gemini models for text completions.
+- **Enterprise RAG Pipeline**: Intelligent document retrieval and vector embeddings for contextual Q&A.
+- **Interactive Dashboard**: Modern, responsive interface for managing knowledge bases and querying data.
+- **Conversational AI**: Multi-turn dialogue with source citations and accurate responses.

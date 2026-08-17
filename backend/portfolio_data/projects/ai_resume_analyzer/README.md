@@ -1,15 +1,19 @@
 ---
-title: AI Resume Analyzer
+title: AI Resume Screening Simulator — ATS Optimizer
 category: project
 tech: Python, FastAPI, PyMuPDF, spaCy, React
-tags: NLP, Resume Parsing, AI, ATS
+tags: NLP, Resume Parsing, AI, ATS, ATS Optimizer
 featured: true
+live_demo: https://ats-resume-rho.vercel.app/
 ---
 
-# AI Resume Analyzer
+# AI Resume Screening Simulator — ATS Optimizer
 
 ## Overview
-Jeswar built the AI Resume Analyzer to solve a major issue encountered by students: resumes getting rejected by automated Applicant Tracking Systems (ATS) due to poor formatting or missing keywords. This app parses resumes, extracts structural sections, and compares them against target job descriptions.
+Jeswar built the AI Resume Screening Simulator & ATS Optimizer to solve a major issue encountered by job seekers: resumes getting rejected by automated Applicant Tracking Systems (ATS) due to poor formatting or missing keywords. This app parses resumes, extracts structural sections, and compares them against target job descriptions.
+
+## Live Demo
+- [Live Demo](https://ats-resume-rho.vercel.app/)
 
 ## Core Features
 - **PDF Text Parsing**: Fast text extraction from PDF files using PyMuPDF.
